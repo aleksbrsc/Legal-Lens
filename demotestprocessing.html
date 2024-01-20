@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Text Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <label for="imageInput">Select an image:</label>
+    <input type="file" id="imageInput" accept="image/*">
+
+    <label for="languagePicker">Select language:</label>
+    <select id="languagePicker">
+        <option value="eng">English</option>
+        <option value="chi_sim">Chinese</option>
+        <!-- Add more language options as needed -->
+    </select>
+
+    <button onclick="processImage()">Process Image</button>
+
+    <div>
+        <textarea id="output" readonly></textarea>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.4.0/dist/tesseract.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
