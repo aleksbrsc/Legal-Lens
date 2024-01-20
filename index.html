@@ -6,7 +6,55 @@
     <title>Legal Lens</title>
 </head>
 <body>
-    <h1>Legal Lens</h1>
-    <p>A tool for processing legal documents of various into organized key-value set</p>
+    <nav>
+        <div id="title"> 
+            <img id="logo" src="images/upload_icon.svg" alt="Logo">
+            <a href="index.html">
+                <h1>Legal Lens</h1>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <div id="hero">
+            <h1>Easily convert legal documents of any language into usable data.</h1>
+            <p>Paste images or text into Legal Lens to return organized key-value text, whether for your auto-fills, visa application</p>
+        </div>
+
+        <div id="language">
+            <span>
+                <label for="languagePicker">Select language:</label>
+                <select id="languagePicker"></select>
+            </span>
+        </div>
+
+        <div id="dropbox">
+            <img id="upload" src="images/upload_icon.svg" alt="Upload">
+            
+            <!-- <label for="file">Choose file to upload</label> -->
+            <input type="file" id="imageInput" accept="image/*">
+            
+            <p><strong>Click to upload</strong> or drag and drop</p>
+            <p>5 Mb limit</p>
+        </div>
+        
+        <div id="textbox">
+            <p></p>
+        </div>
+    </main>
+
+    <footer>
+        <p id="footer-declaration">All images are stored on the client-side, any uploaded data is deleted when you leave the site.</p>
+        <span>
+            <a href="terms.html">
+                <h2 id="terms">Terms</h2>
+            </a>
+            <a href="privacypolicy.html">
+                <h2 id="privacy_policy"></h2>
+            </a>
+        </span>
+    </footer>
+
+    <script src="convert_script.js"></script>
 </body>
 </html>
