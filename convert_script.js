@@ -1,4 +1,4 @@
-// const token = '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' 
+// const token = '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' 
 document.addEventListener('DOMContentLoaded', function () {
     
     initApp();
@@ -151,6 +151,7 @@ function initApp() {
         ).then(({ data: { text } }) => {
             document.getElementById('uploaded-selected-language-text').innerText = text;
             document.getElementById('uploaded-selected-language-text-display').innerText = text;
+
         }).catch(error => {
             console.error('Error during OCR:', error);
         });
@@ -160,44 +161,48 @@ function initApp() {
         console.log(rawText); //test
 
         // Translate rawText into English
-        // const options = {
-        // method: "POST",
-        // url: "https://api.edenai.run/v2/translation/automatic_translation",
-        // headers: {
-        //     authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVjOTljNjYtZmUzMS00ZGQ1LTgyYmYtNDIyNDcyNWE3YmEyIiwidHlwZSI6ImFwaV90b2tlbiJ9.KpQNE3brFTg0gEAARSO8whHhfqq_wvjmctHse44uMOY",
-        // },
-        // data: {
-        //     providers: "google",
-        //     text: rawText,
-        //     source_language: selectedLanguage.split(',')[1],
-        //     target_language: "en",
-        //     fallback_providers: "",
-        // },
-        // };
+        const options = {
+        method: "POST",
+        url: "https://api.edenai.run/v2/translation/automatic_translation",
+        headers: {
+            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGI5YzVlZjUtYzliYS00NDFkLTgzOGItYTQxYTFhNjM0MjhiIiwidHlwZSI6ImZyb250X2FwaV90b2tlbiJ9.EWFrVxdQGtV81PtQO2uo8GvPSBETqAcs9-_PMV8gBi0",
+        },
+        data: {
+            providers: "google",
+            text: rawText,
+            source_language: selectedLanguage.split(',')[1],
+            target_language: "en",
+            fallback_providers: "",
+        },
+        };
 
-        // axios
-        //     .request(options)
-        //     .then((response) => {
-        //         document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
+        axios
+            .request(options)
+            .then((response) => {
+                document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
+                document.getElementById('uploaded-english-text-display').innerText = response.data['google']['text'];
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
         console.log('Successfully loaded translation'); //test
 
             
     }
 
-    // Function to reupload image after the Reupload button is clicked
-    document.getElementById('reupload').addEventListener('click', ReuploadClicked);
+    // // Function to reupload image after the Reupload button is clicked
+    // document.getElementById('reupload').addEventListener('click', ReuploadClicked);
 
-    function ReuploadClicked() {
-        document.getElementById('uploaded-selected-language-text-display').innerText = "*the text in selected languages*";
-        document.getElementById('uploaded-english-text-display').innerText = "*the text in english*";
-        document.getElementById('imageInput').value = ""; // Reset the image input
-        document.getElementById('reupload').disabled = true; // Enable the button
-    }   
+    // function ReuploadClicked() {
+    //     document.getElementById('uploaded-selected-language-text-display').innerText = "*the text in selected languages*";
+    //     document.getElementById('uploaded-english-text-display').innerText = "*the text in english*";
+    //     document.getElementById('imageInput').value = ""; // Reset the image input
+    //     document.getElementById('reupload').disabled = true; // Enable the button
+    //     document.getElementById('uploaded_image').src = ""; // Reset the image
+    //     document.getElementById('output-text').innerText = ''; // Reset the image
+    //     document.getElementById('uploaded_image').style.display = 'none'; // Reset the image
+    // }   
 
     //TODO:\ OpenAI API to summarize text into dictionary with
 
@@ -226,13 +231,56 @@ function initApp() {
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo-1106',
-                    messages: [{ role: 'user', content: rawTextEnglish+ ". Delete any gibberish and summarize this paragraph into a human profiler with keyword-value" }],
+                    messages: [{ role: 'user', content: rawTextEnglish+ ". Delete any gibberish and group this paragraph into a human profiler with keyword-value dictionary" }],
                 }),
             })
             .then(async response => {
                 const result = await response.json();
                 document.getElementById('output-text').innerText = result.choices[0].message.content;
+                document.getElementById('output-text-display').innerText = result.choices[0].message.content;
             })
+        }
+    }
+
+    // Submit button
+    document.getElementById('submit').addEventListener('click', SubmitClicked);
+
+    async function SubmitClicked() {
+        const selectedLanguage = languagePicker.value;
+        if (selectedLanguage.split(',')[0] === 'eng') {
+            const commentText = document.getElementById('comment_text').value;
+            document.getElementById('uploaded-english-text-display').innerText = commentText;
+            document.getElementById('uploaded-english-text').innerText = commentText;
+        } else{
+            const commentText = document.getElementById('comment_text').value;
+            document.getElementById('uploaded-selected-language-text-display').innerText = commentText;
+            // Translate rawText into English
+            const options = {
+            method: "POST",
+            url: "https://api.edenai.run/v2/translation/automatic_translation",
+            headers: {
+                authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGI5YzVlZjUtYzliYS00NDFkLTgzOGItYTQxYTFhNjM0MjhiIiwidHlwZSI6ImZyb250X2FwaV90b2tlbiJ9.EWFrVxdQGtV81PtQO2uo8GvPSBETqAcs9-_PMV8gBi0",
+            },
+            data: {
+                providers: "google",
+                text: commentText,
+                source_language: selectedLanguage.split(',')[1],
+                target_language: "en",
+                fallback_providers: "",
+            },
+            };
+    
+            axios
+                .request(options)
+                .then((response) => {
+                    document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
+                    document.getElementById('uploaded-english-text-display').innerText = response.data['google']['text'];
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+    
+            console.log('Successfully loaded translation'); //test
         }
     }
 
