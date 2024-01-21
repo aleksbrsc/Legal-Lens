@@ -11,7 +11,7 @@ function initApp() {
     const languagePicker = document.getElementById('languagePicker');
     const languageDictionary = {
     "Chinese (Simplified)": ["chi_sim","zh-TW"],
-    "English": "eng",
+    "English": ["eng","en"],
     "Russian": ["rus","ru"],
     // "Afrikaans": "afr",
     // "Amharic": "amh",
@@ -161,32 +161,36 @@ function initApp() {
         console.log(rawText); //test
 
         // Translate rawText into English
-        const options = {
-        method: "POST",
-        url: "https://api.edenai.run/v2/translation/automatic_translation",
-        headers: {
-            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGI5YzVlZjUtYzliYS00NDFkLTgzOGItYTQxYTFhNjM0MjhiIiwidHlwZSI6ImZyb250X2FwaV90b2tlbiJ9.EWFrVxdQGtV81PtQO2uo8GvPSBETqAcs9-_PMV8gBi0",
-        },
-        data: {
-            providers: "google",
-            text: rawText,
-            source_language: selectedLanguage.split(',')[1],
-            target_language: "en",
-            fallback_providers: "",
-        },
-        };
+        if (selectedLanguage.split(',')[0] != 'eng') {
+            const options = {
+                method: "POST",
+                url: "https://api.edenai.run/v2/translation/automatic_translation",
+                headers: {
+                    authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNGI5YzVlZjUtYzliYS00NDFkLTgzOGItYTQxYTFhNjM0MjhiIiwidHlwZSI6ImZyb250X2FwaV90b2tlbiJ9.EWFrVxdQGtV81PtQO2uo8GvPSBETqAcs9-_PMV8gBi0",
+                },
+                data: {
+                    providers: "google",
+                    text: rawText,
+                    source_language: selectedLanguage.split(',')[1],
+                    target_language: "en",
+                    fallback_providers: "",
+                },
+                };
+        
+                axios
+                    .request(options)
+                    .then((response) => {
+                        document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
+                        document.getElementById('uploaded-english-text-display').innerText = response.data['google']['text'];
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+        
+                console.log('Successfully loaded translation'); //test
+        }
 
-        axios
-            .request(options)
-            .then((response) => {
-                document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
-                document.getElementById('uploaded-english-text-display').innerText = response.data['google']['text'];
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-
-        console.log('Successfully loaded translation'); //test
+        
 
             
     }
