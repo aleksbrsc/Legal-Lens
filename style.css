@@ -63,7 +63,29 @@ input#imageInput {
     background: url('images/dropbox.svg') center center no-repeat #1e1e1e;
     border-radius: 20px;
     background-size: 800px 800px;
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    appearance: none; /* Remove default appearance */
+    -webkit-appearance: none; /* Remove default appearance for WebKit browsers */
+    -moz-appearance: none; /* Remove default appearance for Mozilla browsers */
 }
+
+input#imageInput::-webkit-file-upload-button {
+    display: none; /* Hide default file upload button for WebKit browsers */
+}
+
+input#imageInput::-moz-file-upload-button {
+    display: none; /* Hide default file upload button for Mozilla browsers */
+}
+
+input#imageInput::-webkit-file-upload-button {
+    display: none; /* Hide default file upload button for WebKit browsers */
+}
+
+input#imageInput::-moz-file-upload-button {
+    display: none; /* Hide default file upload button for Mozilla browsers */
+}
+
 
 #upload {
     max-width: 50px;
