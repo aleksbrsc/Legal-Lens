@@ -1,4 +1,4 @@
-// const token = '' 
+const token = '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' 
 document.addEventListener('DOMContentLoaded', function () {
     
     initApp();
