@@ -198,7 +198,43 @@ textarea:focus {
     font-size: 0.0001px;
     color: #1E1E1E;
 }
+#reupload {
+    width:8rem;
+    height:2.7rem;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 0.1rem solid transparent;
+    margin-right:1rem;
+    display: inline-block;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #fff;
+    font-family: Lora;
+    line-height: normal;
+    background: 
+        linear-gradient(#1E1E1E, #1E1E1E) padding-box,
+        linear-gradient(180deg, #0057FF, rgba(173, 0, 255, 0.5)) border-box;
+}
+#convert {
+    width:8rem;
+    height:2.7rem;
+    flex-shrink: 0;
+    
+    border-radius: 10px;
+    border-width: 0px;
 
+
+    background-color: transparent;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.25rem;
+    font-family: Lora;
+    line-height: normal;
+    background: 
+        linear-gradient(180deg, #0057FF, rgba(173, 0, 255, 0.5)) padding-box,
+        linear-gradient(180deg, #0057FF, rgba(173, 0, 255, 0.5)) border-box;
+}
 /* 3rd screen */
 
 
