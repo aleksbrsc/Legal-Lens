@@ -114,10 +114,16 @@ main {
 
 #language select:hover {
     cursor: pointer;
-
 }
 
-/* 1st screen */
+
+#upload-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 input#imageInput {
     display: inline-block;
     width: 800px;
@@ -144,16 +150,6 @@ input#imageInput {
 
 input#imageInput:hover {
     cursor: pointer;
-}
-
-input#imageInput::-webkit-file-upload-button {
-    display: none;
-    /* Hide default file upload button for WebKit browsers */
-}
-
-input#imageInput::-moz-file-upload-button {
-    display: none;
-    /* Hide default file upload button for Mozilla browsers */
 }
 
 input#imageInput::-webkit-file-upload-button {

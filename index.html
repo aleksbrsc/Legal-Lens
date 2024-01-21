@@ -45,26 +45,29 @@
                 </span>
             </div>
 
+            <div id="upload-options">
 
-            <form>
-                <input type="file" id="imageInput" accept="image/*" />
-            </form>
+                <form id="upload-form">
+                    <input type="file" id="imageInput" accept="image/*" />
+                </form>
+    
+                <div id="textbox">
+                    <textarea placeholder="Or start typing your text here..." rows="20" name="comment[text]" id="comment_text"
+                        cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list"
+                        aria-haspopup="true"></textarea>
+                </div>
+                <div class="button">
+                    <button id="submit">Submit</button>
+                </div>
 
 
-            <div id="textbox">
-                <textarea placeholder="Or start typing your text here..." rows="20" name="comment[text]" id="comment_text"
-                    cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list"
-                    aria-haspopup="true"></textarea>
-            </div>
-            <div class="button">
-                <button id="submit">Submit</button>
             </div>
         </div>
 
         <!-- 2nd screen -->
         <div id="uploaded">
-            <p id="uploaded_message">Your uploaded image:</p>
-            <img id="uploaded_image"></img>
+            <p id="uploaded-image-message">Your uploaded image:</p>
+            <img id="uploaded-image"></img>
         </div>
 
         <div id="uploaded-selected-language">
