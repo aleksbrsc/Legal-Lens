@@ -72,6 +72,11 @@ input#imageInput {
 
 /* 2nd screen */
 
+#hiddenrawtext {
+    font-size: 0.0001px;
+    color: #1E1E1E;
+}
+
 /* 3rd screen */
 
 
