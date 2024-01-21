@@ -156,13 +156,6 @@ input#imageInput::-moz-file-upload-button {
     /* Hide default file upload button for Mozilla browsers */
 }
 
-
-#upload {
-    max-width: 50px;
-    height: 50px;
-}
-
-
 /* typing text box */
 h2 {
     margin-left: 55px;
@@ -200,7 +193,25 @@ textarea:focus {
     background: none repeat scroll 0 0;
     outline-width: 0;
 }
-
+#submit {
+    width:6rem;
+    height:2.5rem;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    margin-top: 0.75rem;
+    font-family: Karla;
+    line-height: normal;
+    transition: box-shadow 0.2s ease-in-out;
+    background: 
+        linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) padding-box,
+        linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) border-box;
+}
 
 /* 2nd screen */
 
@@ -243,14 +254,14 @@ textarea:focus {
         linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) padding-box,
         linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) border-box;
 }
-#convert:hover {
+#convert:hover, #submit:hover {
     transition: box-shadow 0.2s ease-in-out;
     box-shadow: 2px 2px 5px 0px rgb(53, 83, 155);
   }
-  #reupload:hover {
-    transition: box-shadow 0.2s ease-in-out;
-    box-shadow: 2px 2px 5px 0px rgb(132, 60, 226);
-  }
+#reupload:hover {
+transition: box-shadow 0.2s ease-in-out;
+box-shadow: 2px 2px 5px 0px rgb(132, 60, 226);
+}
 /* 3rd screen */
 
 
