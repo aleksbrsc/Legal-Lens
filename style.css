@@ -323,6 +323,7 @@ textarea:focus {
 
 #screen3 #output #output-text {
     font-size: 1.25rem;
+    line-height: 2rem;
 }
 
 /* Footer */

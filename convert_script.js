@@ -1,11 +1,59 @@
-const token = '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' 
+const token = '' 
+
+let currentScreen = 'screen1';
+
+function changeScreen(screen) {
+    const screen1Elements = document.querySelectorAll('#screen1');
+    const screen2Elements = document.querySelectorAll('#screen2');
+    const screen2Buttons = document.querySelectorAll('.button');
+    const screen3Elements = document.querySelectorAll('#screen3');
+
+    if (screen === 'screen1') {
+        screen1Elements.forEach(element => {
+            element.style.display = 'block';
+        });
+        screen2Elements.forEach(element => {
+            element.style.display = 'none';
+        });
+        screen3Elements.forEach(element => {
+            element.style.display = 'none';
+        });
+    } else if (screen === 'screen2') {
+        screen1Elements.forEach(element => {
+            element.style.display = 'none';
+        });
+        screen2Elements.forEach(element => {
+            element.style.display = 'block';
+        });
+        screen3Elements.forEach(element => {
+            element.style.display = 'none';
+        });
+    } else if (screen === 'screen3') {
+        screen1Elements.forEach(element => {
+            element.style.display = 'none';
+        });
+        // screen2Elements.forEach(element => {
+        //     element.style.display = 'none';
+        // });
+        // screen2Buttons.forEach(element => {
+        //     element.style.display = 'block';
+        // });
+        screen3Elements.forEach(element => {
+            element.style.display = 'flex';
+        });
+    }
+
+    currentScreen = screen;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     
     initApp();
 });
 
 function initApp() {
-    
+    changeScreen('screen1');
+
     document.getElementById('imageInput').addEventListener('change', handleImage);
     // Populate language picker
     const languagePicker = document.getElementById('languagePicker');
@@ -130,6 +178,7 @@ function initApp() {
                     processImage(img);
                     document.getElementById('uploaded_image').src = e.target.result; // display the image
                     document.getElementById('uploaded_image').style.display = 'block'; // display the image
+                    changeScreen('screen2');
                 };
                 img.src = e.target.result;
             };
@@ -215,6 +264,7 @@ function initApp() {
     document.getElementById('convert').addEventListener('click', ConvertClicked);
 
     function ConvertClicked() {
+            changeScreen('screen3');
 
             let rawTextEnglish = document.getElementById('uploaded-english-text').innerText;
             // const openai = new OpenAI({
