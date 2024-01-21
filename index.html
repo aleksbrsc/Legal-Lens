@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/mag-lens-gear.svg" type="image/x-icon">
+    <!-- <script type="module">
+        import langchain from 'https://cdn.jsdelivr.net/npm/langchain@0.1.4/+esm'
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script> <!--For tesseract.js implementation-->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- <script type="module">import OpenAI from 'https://cdn.jsdelivr.net/npm/openai@4.24.7/index.min.js'</script> -->
     <title>Legal Lens</title>
 
@@ -70,17 +73,14 @@
     
             <!-- 2nd screen textbox for selected langauage-->
             <div id="uploaded-selected-language">
-                <textarea disabled placeholder="Or start typing your text here..." rows="20" name="comment[text]"
+                <textarea disabled placeholder="Generating the text in your chosen language..." rows="20" name="comment[text]"
                     id="comment_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox"
                     aria-autocomplete="list" aria-haspopup="true"></textarea>
             </div>
     
-    
-    
-    
             <!-- 2nd screen textbox to english -->
             <div id="uploaded-english">
-                <textarea disabled placeholder="Or start typing your text here..." rows="20" name="comment[text]"
+                <textarea disabled placeholder="Generating the text in English..." rows="20" name="comment[text]"
                     id="comment_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox"
                     aria-autocomplete="list" aria-haspopup="true"></textarea>
             </div>
@@ -100,7 +100,9 @@
             </div>
     
             <div class="button">
-                <button id="reupload" disabled>Reupload</button>
+                <a href="index.html">
+                    <button id="reupload">Reupload</button>
+                </a>
                 <button id="convert">Convert</button>
             </div>
 
@@ -127,7 +129,7 @@
             </p>
         </div>
 
-        <div id="uploaded-english">
+<div id="uploaded-english">
             <p id="uploaded-english-text">
                 <italic>*the text in english*</italic>
             </p>
@@ -171,7 +173,6 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/openai@4.24.7/index.min.js"></script> -->
     <script src="convert_script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script> <!--For tesseract.js implementation-->
