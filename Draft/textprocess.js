@@ -25,7 +25,7 @@ function processImage(img) {
         selectedLanguage,
         { logger: info => console.log(info) }
     ).then(({ data: { text } }) => {
-        document.getElementById('output').value = text;
+        document.getElementById('output').innerText = text;
     }).catch(error => {
         console.error('Error during OCR:', error);
     });
