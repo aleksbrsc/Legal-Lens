@@ -50,11 +50,64 @@ nav {
 /* Main */
 
 
+/* 1st screen */
 #upload {
     max-width: 50px;
     height: 50px;
 }
 
+/* 2nd screen */
+
+/* 3rd screen */
 
 
 /* Footer */
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 10px;
+    text-align: left;
+}
+
+#footer-declaration {
+    text-align: left;
+    margin-left: 5.38rem;
+    color: #B8B4B4;
+    width: 85.5rem;
+    font-family: Karla;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-left: 5.38rem;
+}
+
+#footer-links a {
+    text-decoration: none;
+    color: #B8B4B4;
+    margin-bottom: 2rem;
+}
+
+#footer-links h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
