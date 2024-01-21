@@ -99,10 +99,20 @@ main {
     line-height: normal;
 }
 
+#language select {
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    font-family: Karla;
+    font-size: 1.25rem;
+    margin-left: 2rem;
+    padding: 0px;
+    max-width: 15 rem;
+
+}
+
 /* 1st screen */
 input#imageInput {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
     display: inline-block;
     width: 800px;
     padding: 300px 0 0 0;

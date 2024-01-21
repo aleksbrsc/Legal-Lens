@@ -1,8 +1,11 @@
+const token = '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' 
 document.addEventListener('DOMContentLoaded', function () {
+    
     initApp();
 });
 
 function initApp() {
+    
     document.getElementById('imageInput').addEventListener('change', handleImage);
     // Populate language picker
     const languagePicker = document.getElementById('languagePicker');
@@ -129,6 +132,7 @@ function initApp() {
             };
             reader.readAsDataURL(file);
         }
+        document.getElementById('reupload').disabled = false; // Enable the button
     }
 
     let rawText;
@@ -150,37 +154,78 @@ function initApp() {
         rawText = document.getElementById('uploaded-selected-language-text').innerText;
 
         // Translate rawText into English
-        const options = {
-        method: "POST",
-        url: "https://api.edenai.run/v2/translation/automatic_translation",
-        headers: {
-            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVjOTljNjYtZmUzMS00ZGQ1LTgyYmYtNDIyNDcyNWE3YmEyIiwidHlwZSI6ImFwaV90b2tlbiJ9.KpQNE3brFTg0gEAARSO8whHhfqq_wvjmctHse44uMOY",
-        },
-        data: {
-            providers: "google",
-            text: rawText,
-            source_language: selectedLanguage.split(',')[1],
-            target_language: "en",
-            fallback_providers: "",
-        },
-        };
+        // const options = {
+        // method: "POST",
+        // url: "https://api.edenai.run/v2/translation/automatic_translation",
+        // headers: {
+        //     authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVjOTljNjYtZmUzMS00ZGQ1LTgyYmYtNDIyNDcyNWE3YmEyIiwidHlwZSI6ImFwaV90b2tlbiJ9.KpQNE3brFTg0gEAARSO8whHhfqq_wvjmctHse44uMOY",
+        // },
+        // data: {
+        //     providers: "google",
+        //     text: rawText,
+        //     source_language: selectedLanguage.split(',')[1],
+        //     target_language: "en",
+        //     fallback_providers: "",
+        // },
+        // };
 
-        axios
-            .request(options)
-            .then((response) => {
-                document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        // axios
+        //     .request(options)
+        //     .then((response) => {
+        //         document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
+        //     })
+        //     .catch((error) => {
+        //         console.error(error);
+        //     });
 
-            console.log('Successfully loaded image');
+        console.log('Successfully loaded translation'); //test
+
+            
     }
+
+    // Function to reupload image after the Reupload button is clicked
+    document.getElementById('reupload').addEventListener('click', ReuploadClicked);
+
+    function ReuploadClicked() {
+        document.getElementById('uploaded-selected-language-text').innerText = "*the text in selected languages*";
+        document.getElementById('uploaded-english-text').innerText = "*the text in english*";
+        document.getElementById('imageInput').value = ""; // Reset the image input
+        document.getElementById('reupload').disabled = true; // Enable the button
+    }   
 
     //TODO: OpenAI API to summarize text into dictionary with
 
-}
+    document.getElementById('convert').addEventListener('click', ConvertClicked);
 
+    function ConvertClicked() {
+            // const openai = new OpenAI({
+            //     apiKey: process.env.API_KEY,
+            //     });
 
+            // const completion = OpenAI.chat.completions.create({
+            //     apiKey: process.env.API_KEY,
+            //     messages: [{ role: "system", content: "I am Phineas. I am a student in Sheridan College. I love reading and music. I also work out everyday. Summarize this paragraph into a profiler with keyword-value" }],
+            //     model: "gpt-3.5-turbo-1106",
+            // });
 
+            // console.log(completion.choices[0]);
 
+            fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo-1106',
+                    messages: [{ role: 'user', content: "I am Phineas. I am a student in Sheridan College. I love reading and music. I also work out everyday. Summarize this paragraph into a profiler with keyword-value" }],
+                }),
+            })
+            .then(async response => {
+                const result = await response.json();
+                document.getElementById('uploaded-selected-language-text').innerText = result.choices[0].message.content;
+            })
+        }
+    }
+
+    

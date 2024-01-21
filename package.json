@@ -1,6 +1,21 @@
 {
   "dependencies": {
     "axios": "^1.6.5",
+    "dotenv": "^16.3.2",
+    "dotnet": "^1.1.4",
+    "langchain": "^0.1.4",
+    "openai": "^4.24.7",
     "tesseract.js": "^5.0.4"
-  }
+  },
+  "name": "legal-lens",
+  "description": "A tool for processing legal documents of various languages into organized key-value sets //hi its Aleks push",
+  "version": "1.0.0",
+  "main": "convert_script.js",
+  "scripts": {
+    "dev": "node script2.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
