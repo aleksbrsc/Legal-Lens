@@ -3,6 +3,11 @@
     src: url(fonts/Lora/Lora-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: Karla;
+    src: url(fonts/Karla/Karla-VariableFont_wght.ttf);
+}
+
 body {
     font-family: Lora;
     background-color: #1E1E1E;
@@ -49,6 +54,48 @@ nav {
 /* Main */
 main {
     margin-left: 6rem;
+}
+
+#hero h1 {
+    width: 61.9375rem;
+    height: 8.5625rem;
+    flex-shrink: 0;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-wrap: wrap;
+    margin-bottom: 0px;
+}
+
+#hero p {
+    margin-top: 0px;
+    display: flex;
+    width: 43.9375rem;
+    height: 3.625rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #B8B4B4;
+    font-family: Karla;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 2rem;
+
+}
+
+#language label {
+    width: 10.1875rem;
+    height: 2rem;
+    flex-shrink: 0;
+    color: #FCFCFC;
+    font-family: Karla;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 /* 1st screen */
