@@ -110,6 +110,10 @@ main {
     margin-left: 2rem;
     padding: 0px;
     max-width: 15 rem;
+}
+
+#language select:hover {
+    cursor: pointer;
 
 }
 
@@ -136,6 +140,10 @@ input#imageInput {
     /* Remove default appearance for WebKit browsers */
     -moz-appearance: none;
     /* Remove default appearance for Mozilla browsers */
+}
+
+input#imageInput:hover {
+    cursor: pointer;
 }
 
 input#imageInput::-webkit-file-upload-button {
@@ -260,10 +268,13 @@ textarea:focus {
 #convert:hover, #submit:hover {
     transition: box-shadow 0.2s ease-in-out;
     box-shadow: 2px 2px 5px 0px rgb(53, 83, 155);
+    cursor: pointer;
+
   }
 #reupload:hover {
-transition: box-shadow 0.2s ease-in-out;
-box-shadow: 2px 2px 5px 0px rgb(132, 60, 226);
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 2px 2px 5px 0px rgb(132, 60, 226);
+    cursor: pointer;
 }
 /* 3rd screen */
 
