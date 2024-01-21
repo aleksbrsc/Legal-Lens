@@ -234,7 +234,12 @@ textarea:focus {
     padding: 5px;
 }
 
-#hiddenrawtext {
+#uploaded-selected-language-text {
+    font-size: 0.0001px;
+    color: #1E1E1E;
+}
+
+#uploaded-english-text {
     font-size: 0.0001px;
     color: #1E1E1E;
 }
