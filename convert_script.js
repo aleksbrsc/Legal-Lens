@@ -103,7 +103,7 @@ function initApp() {
     "Pushto; Pashto": "pus",
     "Quechua": "que",
     "Romanian; Moldavian; Moldovan": "ron",
-    "Russian": "rus",
+    "Russian": ["rus","ru"],
     "Sanskrit": "san",
     "Sinhala; Sinhalese": "sin",
     "Slovak": "slk",
@@ -127,6 +127,8 @@ function initApp() {
                 const img = new Image();
                 img.onload = function () {
                     processImage(img);
+                    document.getElementById('uploaded_image').src = e.target.result; // display the image
+                    document.getElementById('uploaded_image').style.display = 'block'; // display the image
                 };
                 img.src = e.target.result;
             };
@@ -154,29 +156,29 @@ function initApp() {
         rawText = document.getElementById('uploaded-selected-language-text').innerText;
 
         // Translate rawText into English
-        // const options = {
-        // method: "POST",
-        // url: "https://api.edenai.run/v2/translation/automatic_translation",
-        // headers: {
-        //     authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVjOTljNjYtZmUzMS00ZGQ1LTgyYmYtNDIyNDcyNWE3YmEyIiwidHlwZSI6ImFwaV90b2tlbiJ9.KpQNE3brFTg0gEAARSO8whHhfqq_wvjmctHse44uMOY",
-        // },
-        // data: {
-        //     providers: "google",
-        //     text: rawText,
-        //     source_language: selectedLanguage.split(',')[1],
-        //     target_language: "en",
-        //     fallback_providers: "",
-        // },
-        // };
+        const options = {
+        method: "POST",
+        url: "https://api.edenai.run/v2/translation/automatic_translation",
+        headers: {
+            authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVjOTljNjYtZmUzMS00ZGQ1LTgyYmYtNDIyNDcyNWE3YmEyIiwidHlwZSI6ImFwaV90b2tlbiJ9.KpQNE3brFTg0gEAARSO8whHhfqq_wvjmctHse44uMOY",
+        },
+        data: {
+            providers: "google",
+            text: rawText,
+            source_language: selectedLanguage.split(',')[1],
+            target_language: "en",
+            fallback_providers: "",
+        },
+        };
 
-        // axios
-        //     .request(options)
-        //     .then((response) => {
-        //         document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
+        axios
+            .request(options)
+            .then((response) => {
+                document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
         console.log('Successfully loaded translation'); //test
 

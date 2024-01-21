@@ -224,13 +224,16 @@ textarea:focus {
 
 /* 2nd screen */
 #uploaded_image {
+    display: none;
     border-radius: 15px;
     max-width: 20rem;
+    margin-bottom: 1rem;
     border: 10px solid;
     border-image: linear-gradient(to right, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5));
     border-image-slice: 1;
     padding: 5px;
 }
+
 #hiddenrawtext {
     font-size: 0.0001px;
     color: #1E1E1E;
