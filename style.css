@@ -47,11 +47,14 @@ nav {
 
 
 /* Main */
-
-
+main {
+    margin-left: 6rem;
+}
 
 /* 1st screen */
 input#imageInput {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
     display: inline-block;
     width: 800px;
     padding: 120px 0 0 0;
