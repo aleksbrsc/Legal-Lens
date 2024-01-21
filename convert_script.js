@@ -45,7 +45,7 @@ function changeScreen(screen) {
 
     currentScreen = screen;
 }
-
+ 
 document.addEventListener('DOMContentLoaded', function () {
     
     initApp();
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function initApp() {
     changeScreen('screen1');
-
+    
     document.getElementById('imageInput').addEventListener('change', handleImage);
     // Populate language picker
     const languagePicker = document.getElementById('languagePicker');
@@ -81,9 +81,9 @@ function initApp() {
     "Corsican": "cos",
     "Welsh": "cym",
     "Danish": "dan",
-    "Danish - Fraktur (contrib)": "dan_frak",
+    "Danish (Fraktur contrib)": "dan_frak",
     "German": "deu",
-    "German - Fraktur (contrib)": "deu_frak",
+    "German (Fraktur contrib)": "deu_frak",
     "Dzongkha": "dzo",
     // "Greek, Modern (1453-)": "ell",
     // "English, Middle (1100-1500)": "enm",
@@ -93,7 +93,7 @@ function initApp() {
     "Basque": "eus",
     "Faroese": "fao",
     "Persian": "fas",
-    "Filipino (old - Tagalog)": "fil",
+    "Filipino (old Tagalog)": "fil",
     "Finnish": "fin",
     "French": "fra",
     "German - Fraktur": "frk",
@@ -259,7 +259,7 @@ function initApp() {
     //     document.getElementById('uploaded_image').style.display = 'none'; // Reset the image
     // }   
 
-    //TODO:\ OpenAI API to summarize text into dictionary with
+    // OpenAI API to summarize text into dictionary with
 
     document.getElementById('convert').addEventListener('click', ConvertClicked);
 
