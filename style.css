@@ -55,9 +55,11 @@ nav {
 /* Main */
 main {
     margin-left: 6rem;
+    font-family: Karla;
 }
 
 #hero h1 {
+    font-family: Lora;
     width: 61.9375rem;
     height: 8.5625rem;
     flex-shrink: 0;
@@ -162,7 +164,7 @@ h2 {
 }
 
 textarea {
-    width: 500px;
+    width: 785px;
     height: 100px;
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -192,6 +194,7 @@ textarea {
 textarea:focus {
     background: none repeat scroll 0 0;
     outline-width: 0;
+    color: white;
 }
 #submit {
     width:6rem;
