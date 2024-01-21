@@ -1,4 +1,4 @@
-// const token = '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' 
+// const token = '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' 
 document.addEventListener('DOMContentLoaded', function () {
     
     initApp();
@@ -188,6 +188,8 @@ function initApp() {
                     });
         
                 console.log('Successfully loaded translation'); //test
+        } else {
+            document.getElementById('uploaded-english-text').innerText = rawText;
         }
 
         
