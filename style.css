@@ -210,31 +210,37 @@ textarea:focus {
     font-weight: 400;
     font-size: 1.25rem;
     color: #fff;
-    font-family: Lora;
+    font-family: Karla;
     line-height: normal;
     background: 
         linear-gradient(#1E1E1E, #1E1E1E) padding-box,
-        linear-gradient(180deg, #0057FF, rgba(173, 0, 255, 0.5)) border-box;
+        linear-gradient(130deg, rgba(80, 127, 237, 0.616), rgba(132, 60, 226, 0.639)) border-box;
 }
 #convert {
     width:8rem;
     height:2.7rem;
     flex-shrink: 0;
-    
     border-radius: 10px;
     border-width: 0px;
-
-
     background-color: transparent;
     color: #fff;
     font-weight: 400;
     font-size: 1.25rem;
-    font-family: Lora;
+    font-family: Karla;
     line-height: normal;
+    transition: box-shadow 0.2s ease-in-out;
     background: 
-        linear-gradient(180deg, #0057FF, rgba(173, 0, 255, 0.5)) padding-box,
-        linear-gradient(180deg, #0057FF, rgba(173, 0, 255, 0.5)) border-box;
+        linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) padding-box,
+        linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) border-box;
 }
+#convert:hover {
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 2px 2px 5px 0px rgb(53, 83, 155);
+  }
+  #reupload:hover {
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 2px 2px 5px 0px rgb(132, 60, 226);
+  }
 /* 3rd screen */
 
 
