@@ -22,7 +22,7 @@ const languageDictionary = {
     "Catalan; Valencian": "cat",
     "Cebuano": "ceb",
     "Czech": "ces",
-    "Chinese - Simplified": ["chi_sim","zh-TW"],
+    "Chinese - Simplified": ["chi_sim","zh"],
     "Chinese - Traditional": "chi_tra",
     "Cherokee": "chr",
     "Corsican": "cos",
@@ -129,11 +129,11 @@ function handleImage(e) {
         reader.readAsDataURL(file);
     }
 }
-
-function processImage(img) {
+let rawText;
+async function processImage(img) {
     const selectedLanguage = languagePicker.value;
-    
-    Tesseract.recognize(
+
+    await Tesseract.recognize(
         img,
         selectedLanguage.split(',')[0],
         { logger: info => console.log(info) }
@@ -142,15 +142,11 @@ function processImage(img) {
     }).catch(error => {
         console.error('Error during OCR:', error);
     });
-
-    // Translate rawText into English
-
-    let textRaw = document.getElementById('uploaded-selected-language-text').innerText;
+    rawText = document.getElementById('uploaded-selected-language-text').innerText;
     
-    //const axios = axios.create();
-    // const axios = require("axios").default;
+    
+    console.log(rawText);
 
-    console.log('Successfully loaded image');
     // const selectedLanguage = languagePicker.value;
     const options = {
     method: "POST",
@@ -160,7 +156,7 @@ function processImage(img) {
     },
     data: {
         providers: "google",
-        text: textRaw,
+        text: rawText,
         source_language: selectedLanguage.split(',')[1],
         target_language: "en",
         fallback_providers: "",
@@ -175,7 +171,51 @@ function processImage(img) {
         .catch((error) => {
             console.error(error);
         });
+
+        console.log('Successfully loaded image');
 }
+
+    
+    
+    
+    //
+    // const textRaw = document.getElementById('uploaded-selected-language-text').innerText;
+
+
+    // Translate rawText into English
+    
+    //const axios = axios.create();
+    // const axios = require("axios").default;
+
+    
+    // // const selectedLanguage = languagePicker.value;
+    // const options = {
+    // method: "POST",
+    // url: "https://api.edenai.run/v2/translation/automatic_translation",
+    // headers: {
+    //     authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzVjOTljNjYtZmUzMS00ZGQ1LTgyYmYtNDIyNDcyNWE3YmEyIiwidHlwZSI6ImFwaV90b2tlbiJ9.KpQNE3brFTg0gEAARSO8whHhfqq_wvjmctHse44uMOY",
+    // },
+    // data: {
+    //     providers: "google",
+    //     text: textRaw,
+    //     source_language: selectedLanguage.split(',')[1],
+    //     target_language: "en",
+    //     fallback_providers: "",
+    // },
+    // };
+
+    // axios
+    //     .request(options)
+    //     .then((response) => {
+    //         document.getElementById('uploaded-english-text').innerText = response.data['google']['text'];
+    //     })
+    //     .catch((error) => {
+    //         console.error(error);
+    //     });
+
+    //     console.log('Successfully loaded image');
+}
+
 
 
 // // Translate rawText into English
@@ -208,5 +248,5 @@ function processImage(img) {
 //     console.error(error);
 //   });
 
-}  
+
 
