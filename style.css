@@ -51,6 +51,10 @@ nav {
     margin-right: 10px;
 }
 
+#logo:hover {
+    cursor: pointer;
+}
+
 
 /* Main */
 main {
@@ -109,7 +113,7 @@ main {
     font-size: 1.25rem;
     margin-left: 2rem;
     padding: 0px;
-    max-width: 15 rem;
+    max-width: 13rem;
 }
 
 #language select:hover {
@@ -125,6 +129,8 @@ main {
 }
 
 input#imageInput {
+    transition: opacity 0.3s ease;
+    margin-top: 0.2rem;
     display: inline-block;
     width: 800px;
     padding: 300px 0 0 0;
@@ -150,6 +156,7 @@ input#imageInput {
 
 input#imageInput:hover {
     cursor: pointer;
+    opacity: 0.7; /* Opacity on hover */
 }
 
 input#imageInput::-webkit-file-upload-button {
