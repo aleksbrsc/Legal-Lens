@@ -52,7 +52,7 @@ nav {
 
 
 /* 1st screen */
-input#file {
+input#imageInput {
     display: inline-block;
     width: 100%;
     padding: 120px 0 0 0;
