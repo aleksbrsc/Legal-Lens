@@ -3,8 +3,6 @@
     src: url(fonts/Lora/Lora-VariableFont_wght.ttf);
 }
 
-
-
 body {
     font-family: Lora;
     background-color: #1E1E1E;
@@ -51,21 +49,21 @@ nav {
 /* Main */
 
 
+
 /* 1st screen */
 input#imageInput {
     display: inline-block;
-    width: 100%;
+    width: 800px;
     padding: 120px 0 0 0;
-    height: 100px;
+    height: 270px;
     overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background: url('images/upload_icon.svg') center center no-repeat #232323;
-    
+    background: url('images/dropbox.svg') center center no-repeat #1e1e1e;
     border-radius: 20px;
-    background-size: 60px 60px;
-  }
+    background-size: 800px 800px;
+}
 
 #upload {
     max-width: 50px;

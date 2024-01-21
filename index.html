@@ -19,53 +19,65 @@
     </nav>
 
     <main>
-        <!-- 1st screen -->
-        <div id="hero">
-            <h1>Easily convert legal documents of any language into usable data.</h1>
-            <p>Paste images or text into Legal Lens to return organized key-value text, whether for your auto-fills, visa application</p>
-        </div>
 
         <!-- 1st screen -->
-        <div id="language">
-            <span>
-                <label for="languagePicker">Select language:</label>
-                <select id="languagePicker"></select>
-            </span>
-        </div>
+        <div id="screen1">
 
-        <!-- 1st screen -->
-        <form>
-            <input type="file" id="imageInput" accept="image/*"/>
-          </form>
-        
-        <!-- 1st screen -->
-        <div id="textbox">
+            <div id="hero">
+                <h1>Easily convert legal documents of any language into usable data.</h1>
+                <p>Paste images or text into Legal Lens to return organized key-value text, whether for your auto-fills, visa application</p>
+            </div>
+
+
+            <div id="language">
+                <span>
+                    <label for="languagePicker">Select language:</label>
+                    <select id="languagePicker"></select>
+                </span>
+            </div>
+
+
             <form>
-                <input type="text" id="text_input" name="text_input" placeholder="Or start typing your text here...">
+                <input type="file" id="imageInput" accept="image/*"/>
             </form>
+            
+            
+            <div id="textbox">
+                <form>
+                    <input type="text" id="text_input" name="text_input" placeholder="Or start typing your text here...">
+                </form>
+            </div>
         </div>
 
         <!-- 2nd screen -->
-        <div id="uploaded">
-            <p id="uploaded_message">Your uploaded image:</p>
-            <img id="uploaded_image"></img>
-        </div>
+        <div id="screen2">
+            <div id="uploaded">
+                <p id="uploaded_message">Your uploaded image:</p>
+                <img id="uploaded_image"></img>
+            </div>
+    
+            <div id="uploaded-selected-language">
+                <p id="uploaded-selected-language-text"><italic>*the text in selected languages*</italic></p>
+            </div>
+    
+            <div id="uploaded-english">
+                <p id="uploaded-english-text"><italic>*the text in english*</italic></p>
+            </div>
 
-        <div id="uploaded-selected-language">
-            <p id="uploaded-selected-language-text"><italic>*the text in selected languages*</italic></p>
-        </div>
-
-        <div id="uploaded-english">
-            <p id="uploaded-english-text"><italic>*the text in english*</italic></p>
+            <div class="buttons">
+                <button>Reupload</button>
+                <button>Convert</button> 
+                <!--  -->
+            </div>
         </div>
 
 
         <!-- 3rd screen -->
-        <div id="output">
-            <p id="output-text">Here is the output text</p>
+        <div id="screen3">
+            <div id="output">
+                <p id="output-text">Here is the output text</p>
+            </div>
         </div>
-
-        </p>
     </main>
 
     <footer>
