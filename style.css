@@ -225,7 +225,14 @@ textarea:focus {
 }
 
 /* 2nd screen */
-
+#uploaded_image {
+    border-radius: 15px;
+    max-width: 20rem;
+    border: 10px solid;
+    border-image: linear-gradient(to right, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5));
+    border-image-slice: 1;
+    padding: 5px;
+}
 #hiddenrawtext {
     font-size: 0.0001px;
     color: #1E1E1E;
@@ -267,13 +274,13 @@ textarea:focus {
 }
 #convert:hover, #submit:hover {
     transition: box-shadow 0.2s ease-in-out;
-    box-shadow: 2px 2px 5px 0px rgb(53, 83, 155);
+    box-shadow: 0px 0px 5px 3px rgb(53, 83, 155);
     cursor: pointer;
 
   }
 #reupload:hover {
     transition: box-shadow 0.2s ease-in-out;
-    box-shadow: 2px 2px 5px 0px rgb(132, 60, 226);
+    box-shadow: 0px 0px 5px 2px rgb(132, 60, 226);
     cursor: pointer;
 }
 /* 3rd screen */
