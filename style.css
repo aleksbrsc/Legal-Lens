@@ -321,6 +321,10 @@ textarea:focus {
     align-items: center;
 }
 
+#screen3 #output #output-text {
+    font-size: 1.25rem;
+}
+
 /* Footer */
 
 body {
