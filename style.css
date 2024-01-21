@@ -169,6 +169,13 @@ input#imageInput::-moz-file-upload-button {
     /* Hide default file upload button for Mozilla browsers */
 }
 
+#screen2-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* typing text box */
 h2 {
     margin-left: 55px;
@@ -241,6 +248,10 @@ textarea:focus {
     padding: 5px;
 }
 
+#uploaded_message {
+    color: #B8B4B4;
+}
+
 #uploaded-selected-language-text {
     font-size: 0.0001px;
     color: #1E1E1E;
@@ -302,12 +313,13 @@ textarea:focus {
     cursor: pointer;
 }
 
-/* screen 2 output text */
-
-
-
 /* 3rd screen */
 
+#screen3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Footer */
 
