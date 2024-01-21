@@ -1,4 +1,4 @@
-// const token = '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' 
+// const token = '' 
 document.addEventListener('DOMContentLoaded', function () {
     
     initApp();
