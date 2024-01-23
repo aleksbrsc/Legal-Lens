@@ -1,6 +1,8 @@
 # Legal Lens
 A tool for processing physical/digital legal documents of any language into key-value organized data.
 
+![](https://github.com/aleksbrsc/Legal-Lens/legal-lens-showcase.gif)
+
 ### Inspiration
 Applying for many American government documents is far too time-consuming and inconveniences those whose native language is not English. Immigrants and newcomers to English countries needed a solution to save their time and energy in this process.
 
