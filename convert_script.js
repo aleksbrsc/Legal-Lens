@@ -302,6 +302,7 @@ function initApp() {
     document.getElementById('submit').addEventListener('click', SubmitClicked);
 
     async function SubmitClicked() {
+        changeScreen('screen2');
         const selectedLanguage = languagePicker.value;
         if (selectedLanguage.split(',')[0] === 'eng') {
             const commentText = document.getElementById('comment_text').value;
