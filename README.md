@@ -1,5 +1,5 @@
 # Legal Lens
-A tool for processing physical/digital legal documents of any language into key-value organized data.
+A tool for processing physical/digital legal documents of many languages into key-value organized data.
 
 ![](https://github.com/aleksbrsc/Legal-Lens/blob/main/legal-lens-showcase.gif)
 
