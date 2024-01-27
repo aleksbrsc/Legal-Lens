@@ -1,4 +1,4 @@
-const token = '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' 
+const token = '' 
 
 let currentScreen = 'screen1';
 
