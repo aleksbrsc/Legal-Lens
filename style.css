@@ -111,9 +111,7 @@ main {
     border: none;
     font-family: Karla;
     font-size: 1.25rem;
-    margin-left: 2rem;
-    padding: 0px;
-
+    margin-left: 1rem;
     max-width: 13rem;
 
 }
@@ -265,7 +263,12 @@ textarea:focus {
     color: #1E1E1E;
 }
 
+.button a {
+    text-decoration: none;
+}
+
 #reupload {
+    text-decoration: none;
     width: 8rem;
     height: 2.7rem;
     flex-shrink: 0;
@@ -300,6 +303,7 @@ textarea:focus {
     background:
         linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) padding-box,
         linear-gradient(300deg, rgba(80, 127, 237, 0.5), rgba(133, 60, 226, 0.5)) border-box;
+    overflow: hidden;
 }
 
 #convert:hover,

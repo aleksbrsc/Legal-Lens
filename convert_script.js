@@ -48,8 +48,18 @@ function initApp() {
     changeScreen('screen1');
     
     document.getElementById('imageInput').addEventListener('change', handleImage);
-
+    
     const languagePicker = document.getElementById('languagePicker');
+
+    // resize the language picker to fit the selected option
+    languagePicker.addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedOptionText = selectedOption.text;
+        const selectedOptionLength = selectedOptionText.length;
+        const maxOptionWidth = selectedOptionLength > 13 ? 13 : selectedOptionLength;
+
+        this.style.maxWidth = `${maxOptionWidth}rem`;
+    });
 
     const languageDictionary = {
     "Chinese (Simplified)": ["chi_sim","zh-TW"],
