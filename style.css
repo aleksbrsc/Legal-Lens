@@ -424,12 +424,10 @@ footer {
     color: lightskyblue;
 }
 
-/* Terms */
-
-#terms-content h2 {
+#info-content h2 {
     margin-left: 0;
 }
 
-#terms-content p {
+#info-content p {
     color: #afafaf
 }
