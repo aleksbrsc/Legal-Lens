@@ -403,3 +403,33 @@ footer {
     font-weight: 700;
     line-height: normal;
 }
+
+/* information pages: */
+
+#info-container {
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+#info-container h1,
+#info-container h2 {
+    font-family: Lora;
+}
+
+#info-container a {
+    color: blueviolet;;
+}
+
+#info-container a:active {
+    color: lightskyblue;
+}
+
+/* Terms */
+
+#terms-content h2 {
+    margin-left: 0;
+}
+
+#terms-content p {
+    color: #afafaf
+}
