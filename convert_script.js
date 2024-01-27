@@ -1,11 +1,10 @@
-const token = '' 
+const token = ''
 
 let currentScreen = 'screen1';
 
 function changeScreen(screen) {
     const screen1Elements = document.querySelectorAll('#screen1');
     const screen2Elements = document.querySelectorAll('#screen2');
-    const screen2Buttons = document.querySelectorAll('.button');
     const screen3Elements = document.querySelectorAll('#screen3');
 
     if (screen === 'screen1') {
@@ -32,12 +31,6 @@ function changeScreen(screen) {
         screen1Elements.forEach(element => {
             element.style.display = 'none';
         });
-        // screen2Elements.forEach(element => {
-        //     element.style.display = 'none';
-        // });
-        // screen2Buttons.forEach(element => {
-        //     element.style.display = 'block';
-        // });
         screen3Elements.forEach(element => {
             element.style.display = 'flex';
         });
@@ -55,8 +48,9 @@ function initApp() {
     changeScreen('screen1');
     
     document.getElementById('imageInput').addEventListener('change', handleImage);
-    // Populate language picker
+
     const languagePicker = document.getElementById('languagePicker');
+
     const languageDictionary = {
     "Chinese (Simplified)": ["chi_sim","zh-TW"],
     "English": ["eng","en"],
@@ -88,7 +82,7 @@ function initApp() {
     // "Greek, Modern (1453-)": "ell",
     // "English, Middle (1100-1500)": "enm",
     // "Esperanto": "epo",
-    "Math / equation detection module": "equ",
+    // "Math / equation detection module": "equ",
     "Estonian": "est",
     "Basque": "eus",
     "Faroese": "fao",
@@ -115,8 +109,8 @@ function initApp() {
     "Icelandic": "isl",
     "Italian": "ita",
     "Italian - Old": "ita_old",
-    "Javanese": "jav",
-    "Japanese": "jpn",
+    // "Javanese": "jav",
+    // "Japanese": "jpn",
     "Kannada": "kan",
     "Georgian": "kat",
     "Georgian - Old": "kat_old",

@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "axios": "^1.6.5",
-    "dotenv": "^16.3.2",
+    "dotenv": "^16.4.1",
     "dotnet": "^1.1.4",
     "langchain": "^0.1.4",
     "openai": "^4.24.7",

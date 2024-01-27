@@ -113,7 +113,9 @@ main {
     font-size: 1.25rem;
     margin-left: 2rem;
     padding: 0px;
+
     max-width: 13rem;
+
 }
 
 #language select:hover {
