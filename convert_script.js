@@ -6,6 +6,7 @@ function changeScreen(screen) {
     const screen1Elements = document.querySelectorAll('#screen1');
     const screen2Elements = document.querySelectorAll('#screen2');
     const screen3Elements = document.querySelectorAll('#screen3');
+    const copying = document.getElementById('copying');
 
     if (screen === 'screen1') {
         screen1Elements.forEach(element => {
@@ -24,10 +25,10 @@ function changeScreen(screen) {
         screen2Elements.forEach(element => {
             element.style.display = 'block';
         });
-        screen3Elements.forEach(element => {
-            element.style.display = 'none';
-        });
     } else if (screen === 'screen3') {
+        if (document.getElementById("copied").src == '' && document.getElementById("copied").src != 'images/copied.svg') {
+            document.getElementById("copy").src='images/copy.svg';
+        }
         screen1Elements.forEach(element => {
             element.style.display = 'none';
         });
@@ -40,7 +41,6 @@ function changeScreen(screen) {
 }
  
 document.addEventListener('DOMContentLoaded', function () {
-    
     initApp();
 });
 
@@ -248,20 +248,29 @@ function initApp() {
         
 
             
-    }
+    }  
 
-    // // Function to reupload image after the Reupload button is clicked
-    // document.getElementById('reupload').addEventListener('click', ReuploadClicked);
 
-    // function ReuploadClicked() {
-    //     document.getElementById('uploaded-selected-language-text-display').innerText = "*the text in selected languages*";
-    //     document.getElementById('uploaded-english-text-display').innerText = "*the text in english*";
-    //     document.getElementById('imageInput').value = ""; // Reset the image input
-    //     document.getElementById('reupload').disabled = true; // Enable the button
-    //     document.getElementById('uploaded_image').src = ""; // Reset the image
-    //     document.getElementById('output-text').innerText = ''; // Reset the image
-    //     document.getElementById('uploaded_image').style.display = 'none'; // Reset the image
-    // }   
+    // copy to clipboard feature
+    document.getElementById('copy').addEventListener('click', function() {
+        const outputText = document.getElementById('output-text').innerText
+        const copied = document.getElementById('copied');
+
+        // Copy the output text to clipboard
+        navigator.clipboard.writeText(outputText)
+
+        // Set the URL of copy to empty string
+        this.src = '';
+
+        // Set the URL of copied to 'images/copied.svg'
+        copied.src = 'images/copied.svg';
+
+        // Revert the URL of copy after 2 seconds
+        setTimeout(function() {
+            copied.src = '';
+            document.getElementById('copy').src = 'images/copy.svg';
+        }, 2000);
+    });
 
     // OpenAI API to summarize text into dictionary with
 
@@ -271,17 +280,6 @@ function initApp() {
             changeScreen('screen3');
 
             let rawTextEnglish = document.getElementById('uploaded-english-text').innerText;
-            // const openai = new OpenAI({
-            //     apiKey: process.env.API_KEY,
-            //     });
-
-            // const completion = OpenAI.chat.completions.create({
-            //     apiKey: process.env.API_KEY,
-            //     messages: [{ role: "system", content: "I am Phineas. I am a student in Sheridan College. I love reading and music. I also work out everyday. Summarize this paragraph into a profiler with keyword-value" }],
-            //     model: "gpt-3.5-turbo-1106",
-            // });
-
-            // console.log(completion.choices[0]);
 
             fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
@@ -297,7 +295,9 @@ function initApp() {
             .then(async response => {
                 const result = await response.json();
                 document.getElementById('output-text').innerText = result.choices[0].message.content;
-                document.getElementById('output-text-display').innerText = result.choices[0].message.content;
+
+                
+                document.getElementById('copy').src = 'images/copy.svg';
             })
         }
     }

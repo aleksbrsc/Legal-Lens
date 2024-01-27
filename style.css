@@ -174,6 +174,7 @@ input#imageInput::-moz-file-upload-button {
 }
 
 #screen2-options {
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -266,7 +267,7 @@ textarea:focus {
     color: #1E1E1E;
 }
 
-.button a {
+.buttons a {
     text-decoration: none;
 }
 
@@ -329,6 +330,22 @@ textarea:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#copying {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#copy {
+    max-width: 1.5rem;
+    cursor: pointer;
+}
+
+#copied {
+    max-width: 1.5rem;
 }
 
 #screen3 #output #output-text {
