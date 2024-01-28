@@ -1,4 +1,4 @@
-const token = '' 
+const token = ''
 
 let currentScreen = 'screen1';
 
@@ -68,7 +68,6 @@ function initApp() {
     const languageDictionary = {
     "Chinese (Simplified)": ["chi_sim","zh-TW"],
     "English": ["eng","en"],
-    "Vietnamese": ["vie","vi"],
     "Russian": ["rus","ru"],
     // "Afrikaans": "afr",
     // "Amharic": "amh",
@@ -115,7 +114,7 @@ function initApp() {
     "Gujarati": "guj",
     "Haitian; Haitian Creole": "hat",
     "Hebrew": "heb",
-    "Hindi": ["hin","hi"],
+    "Hindi": "hin",
     "Croatian": "hrv",
     "Hungarian": "hun",
     "Armenian": "hye",
@@ -260,6 +259,7 @@ function initApp() {
     document.getElementById('copy').addEventListener('click', function() {
         const outputText = document.getElementById('output-text').innerText
         const copied = document.getElementById('copied');
+        const copy = document.getElementById('copy');
 
         // Copy the output text to clipboard
         navigator.clipboard.writeText(outputText)
@@ -272,8 +272,11 @@ function initApp() {
 
         // Revert the URL of copy after 2 seconds
         setTimeout(function() {
+            if (outputText == '') {
+                return;
+            }
             copied.src = '';
-            document.getElementById('copy').src = 'images/copy.svg';
+            copy.src = 'images/copy.svg';
         }, 2000);
     });
 
@@ -284,7 +287,7 @@ function initApp() {
     function ConvertClicked() {
             document.getElementById('output-text').innerText = ""
             document.getElementById('copy').src = '';
-
+            document.getElementById("copied").src = '';
 
             changeScreen('screen3');
 
@@ -316,7 +319,6 @@ function initApp() {
     document.getElementById('submit').addEventListener('click', SubmitClicked);
 
     async function SubmitClicked() {
-        console.log('Successfully loaded conversion'); //test
         changeScreen('screen2');
         const selectedLanguage = languagePicker.value;
         if (selectedLanguage.split(',')[0] === 'eng') {
