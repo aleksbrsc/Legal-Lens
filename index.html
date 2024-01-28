@@ -11,12 +11,19 @@
     </script> -->
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script> <!--For tesseract.js implementation-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <script type="module">import OpenAI from 'https://cdn.jsdelivr.net/npm/openai@4.24.7/index.min.js'</script> -->
     <title>Legal Lens</title>
 
 </head>
 
 <body>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@v0.153.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@v0.153.0/examples/jsm/"
+            }
+        }
+    </script>
     <nav>
         <div id="title">
             <img id="logo" src="images/mag-lens-gear.svg" alt="Logo">
@@ -115,7 +122,9 @@
             </div> 
         </div>
 
-
+        <div id="spinner">
+            <div id="canvas-container"></div>
+        </div>
 
         <!-- 3rd screen -->
         <div id="screen3">
@@ -140,10 +149,9 @@
         </div>
     </footer>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/openai@4.24.7/index.min.js"></script> -->
     <script src="convert_script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script> <!--For tesseract.js implementation-->
-
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script>
+    <script type="module" src="./3dmodel.js"></script>
 
 </body>
 

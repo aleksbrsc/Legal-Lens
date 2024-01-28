@@ -6,7 +6,7 @@ function changeScreen(screen) {
     const screen1Elements = document.querySelectorAll('#screen1');
     const screen2Elements = document.querySelectorAll('#screen2');
     const screen3Elements = document.querySelectorAll('#screen3');
-    const copying = document.getElementById('copying');
+    const spinner = document.getElementById('spinner');
 
     if (screen === 'screen1') {
         screen1Elements.forEach(element => {
@@ -18,6 +18,7 @@ function changeScreen(screen) {
         screen3Elements.forEach(element => {
             element.style.display = 'none';
         });
+        spinner.style.display = 'none';
     } else if (screen === 'screen2') {
         screen1Elements.forEach(element => {
             element.style.display = 'none';
@@ -26,15 +27,18 @@ function changeScreen(screen) {
             element.style.display = 'block';
         });
     } else if (screen === 'screen3') {
-        if (document.getElementById("copied").src == '' && document.getElementById("copied").src != 'images/copied.svg') {
-            document.getElementById("copy").src='images/copy.svg';
-        }
+
         screen1Elements.forEach(element => {
             element.style.display = 'none';
         });
         screen3Elements.forEach(element => {
             element.style.display = 'flex';
         });
+                
+        if (document.getElementById("copied").src == '' && document.getElementById("copied").src != 'images/copied.svg') {
+            document.getElementById("copy").src='images/copy.svg';
+        }
+        spinner.style.display = 'block';
     }
 
     currentScreen = screen;
@@ -277,6 +281,10 @@ function initApp() {
     document.getElementById('convert').addEventListener('click', ConvertClicked);
 
     function ConvertClicked() {
+            document.getElementById('output-text').innerText = ""
+            document.getElementById('copy').src = '';
+
+
             changeScreen('screen3');
 
             let rawTextEnglish = document.getElementById('uploaded-english-text').innerText;
@@ -294,6 +302,7 @@ function initApp() {
             })
             .then(async response => {
                 const result = await response.json();
+                document.getElementById('spinner').style.display = 'none';
                 document.getElementById('output-text').innerText = result.choices[0].message.content;
 
                 

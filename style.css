@@ -404,6 +404,13 @@ footer {
     line-height: normal;
 }
 
+/* spinner */
+#canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* information pages: */
 
 #info-container {
