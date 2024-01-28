@@ -1,4 +1,4 @@
-const token = ''
+const token = '' 
 
 let currentScreen = 'screen1';
 
@@ -68,6 +68,7 @@ function initApp() {
     const languageDictionary = {
     "Chinese (Simplified)": ["chi_sim","zh-TW"],
     "English": ["eng","en"],
+    "Vietnamese": ["vie","vi"],
     "Russian": ["rus","ru"],
     // "Afrikaans": "afr",
     // "Amharic": "amh",
@@ -114,7 +115,7 @@ function initApp() {
     "Gujarati": "guj",
     "Haitian; Haitian Creole": "hat",
     "Hebrew": "heb",
-    "Hindi": "hin",
+    "Hindi": ["hin","hi"],
     "Croatian": "hrv",
     "Hungarian": "hun",
     "Armenian": "hye",
@@ -315,6 +316,7 @@ function initApp() {
     document.getElementById('submit').addEventListener('click', SubmitClicked);
 
     async function SubmitClicked() {
+        console.log('Successfully loaded conversion'); //test
         changeScreen('screen2');
         const selectedLanguage = languagePicker.value;
         if (selectedLanguage.split(',')[0] === 'eng') {
