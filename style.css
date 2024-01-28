@@ -412,6 +412,16 @@ footer {
     opacity: 0.1;
 }
 
+.css-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+        
+
 /* information pages: */
 
 #info-container {

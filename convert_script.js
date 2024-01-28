@@ -1,4 +1,4 @@
-const token = ''
+const token = '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'
 
 let currentScreen = 'screen1';
 
@@ -272,12 +272,13 @@ function initApp() {
 
         // Revert the URL of copy after 2 seconds
         setTimeout(function() {
-            if (outputText == '') {
+            if (document.getElementById('spinner').style.display != 'none') {
                 return;
+            } else {
+                copied.src = '';
+                copy.src = 'images/copy.svg';
             }
-            copied.src = '';
-            copy.src = 'images/copy.svg';
-        }, 2000);
+            }, 2000);
     });
 
     // OpenAI API to summarize text into dictionary with
